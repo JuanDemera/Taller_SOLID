@@ -11,7 +11,7 @@ package Adicionales;
 public class Crema extends Aderezo {
 
     @Override
-    public void setNombre() {
+    public void setNombre(String nombre) {
         
     }
     
