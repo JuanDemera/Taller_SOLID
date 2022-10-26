@@ -8,9 +8,8 @@ package Adicionales;
  *
  * @author chris
  */
-public class Crema extends Aderezo {
-    public Crema (){
-        super("CREMA");
+public class Frutilla extends Aderezo {
+    public Frutilla (){
+        super("FRUTILLA");
     }
-    
 }
