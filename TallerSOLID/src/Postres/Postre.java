@@ -47,32 +47,16 @@ public class Postre {
 
 
 
-<<<<<<< Updated upstream
-    public String showPrecioFinal(){
-        return "Precio Final: $ " + calcularPrecioFinal();
-    }
 
     @Override
     public String toString() {
         return "{" + "sabor=" + sabor + ", precioParcial=" + precioParcial + ", aderezos=" + aderezos + '}';
     }
-	
-=======
-	public double getPrecioParcial() {
-		return precioParcial;
-	}
 
 
 
 
 
-
-	@Override
-    public String toString() {
-        return "Helado{" + "sabor=" + sabor + ", precioParcial=" + precioParcial + ", aderezos=" + aderezos + '}';
-    }
-    
->>>>>>> Stashed changes
 
 
 }	
