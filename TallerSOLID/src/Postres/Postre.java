@@ -31,17 +31,23 @@ public class Postre {
         this.sabor=sabor;
         this.precioParcial = 15.55;
 	}
+    public Postre() {
+
+	}
     
-    public double calcularPrecioFinal(){
-        double precioFinal;
-        precioFinal=(precioParcial+(precioParcial*0.12))+(aderezos.size()*0.50);
-        return precioFinal;
-    }
+
 
     public ArrayList<Aderezo> getAderezos() {
         return aderezos;
     }
+    
+    
+    
 
+
+
+
+<<<<<<< Updated upstream
     public String showPrecioFinal(){
         return "Precio Final: $ " + calcularPrecioFinal();
     }
@@ -51,5 +57,22 @@ public class Postre {
         return "{" + "sabor=" + sabor + ", precioParcial=" + precioParcial + ", aderezos=" + aderezos + '}';
     }
 	
+=======
+	public double getPrecioParcial() {
+		return precioParcial;
+	}
 
-}
+
+
+
+
+
+	@Override
+    public String toString() {
+        return "Helado{" + "sabor=" + sabor + ", precioParcial=" + precioParcial + ", aderezos=" + aderezos + '}';
+    }
+    
+>>>>>>> Stashed changes
+
+
+}	
