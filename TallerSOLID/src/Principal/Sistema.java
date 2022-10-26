@@ -13,30 +13,41 @@ import Leche.*;
  * @author djurado
  */
 public class Sistema {
-    public static void main(String [ ] args){
+	public static void main(String [ ] args){
         // Producir un helado de vainilla y una torta de chocolate, 
         // a ambos agregarles CREMA y FRUTILLAS
-        // y cambiar el tipo de leche por Leche Descremada
-        // Finalmente mostrar el precio final de cada uno
-        LecheEntera leche = new LecheDeslactosada();
-        ManejadorDeLeche mnj_leche = new ManejadorDeLeche();
+        // y cambiar el tipo de leche por Leche Deslactosada
+        ArrayList<Postre> arrPostres = new ArrayList<>();
+        ManejadorDeLeche mnj_leche = new ManejadorDeLeche(new LecheDescremada());
         
         // Producir Helado
-        Helado helado_vainilla = new Helado("Vainilla");
-        OperacionesAderezo.anadirAderezoHelado(helado_vainilla, new Crema());
-        OperacionesAderezo.anadirAderezoHelado(helado_vainilla, new Frutilla());
-        System.out.println(helado_vainilla);
-//        mnj_leche.cambiarTipoLeche(leche, helado_vainilla);
-        System.out.println(helado_vainilla.showPrecioFinal());
-        
+        Postre helado_vainilla = new Helado("Vainilla");
+        arrPostres.add(helado_vainilla);
         // Producir Pastel
-        Pastel pastel_chocolate = new Pastel("Chocolate");
-        OperacionesAderezo.quitarAderezoPastel(pastel_chocolate, new Crema());
-        OperacionesAderezo.anadirAderezoPastel(pastel_chocolate, new Frutilla());
-        System.out.println(pastel_chocolate);
-//        mnj_leche.cambiarTipoLeche(leche, pastel_chocolate);
-        System.out.println(helado_vainilla.showPrecioFinal());
+        Postre pastel_chocolate = new Pastel("Chocolate");
+        arrPostres.add(pastel_chocolate);
+        
+        arrPostres.forEach(postre -> {
+            Postre.anadirAderezo(postre,new Crema());
+            Postre.quitarAderezo(postre,new Frutilla());
+            System.out.println(postre);
+            mnj_leche.cambiarTipoLeche(postre);
+            System.out.println(ManejadorDePrecio.showPrecioFinal(postre));
+        });        
+        
+    }
+
+}
+public static double calcularPrecioFinal(Postre post){
+        double precioFinal;
         
         
+        precioFinal=(post.getPrecioParcial()+(post.getPrecioParcial()*0.12))+(post.getAderezos().size()*0.50);
+        return precioFinal;
+    }
+
+	
+	public static String  showPrecioFinal(Postre post){
+        return "Precio Final: $ " + ManejadorDePrecio.calcularPrecioFinal(post);
     }
 }
