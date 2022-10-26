@@ -12,14 +12,13 @@ import Adicionales.Aderezo;
  *
  * @author Pedro Mendoza
  */
-public class Helado extends Postre{
-	
-	public Helado (String sabor){
+public class Helado extends Postre{	
+    public Helado (String sabor){
         super(sabor);
     }
     
-    
-    
-    
-    
+    @Override
+    public String toString() {
+        return "Helado"+super.toString();
+    }
 }
